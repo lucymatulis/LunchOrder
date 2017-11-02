@@ -19,7 +19,7 @@ public class LunchOrder {
 
     
     public static void main(String[] args) {
-        int numFries, numBurgs, numSalads, numSodas;
+        int numFries, numBurgs, numSalads, numSodas, moneyPaid;
         Scanner input = new Scanner(System.in);
        
         System.out.println("Enter number of fries:");
@@ -30,16 +30,17 @@ public class LunchOrder {
         numSalads = input.nextInt();
         System.out.println("Enter number of sodas:");
         numSodas = input.nextInt();
+        System.out.println("Enter number of money paid:");
+        moneyPaid = input.nextInt();
         
-        
-        Food order = new Food(numFries, numBurgs, numSalads,numSodas);
+        Food order = new Food(numFries, numBurgs, numSalads,numSodas, moneyPaid);
         
         System.out.println(order.fries());
         System.out.println(order.burgs());
         System.out.println(order.salads());
         System.out.println(order.sodas());
         System.out.println("Your order comes to: "+order.getCost());
-        
+        order.getChange();
     }
     
 }

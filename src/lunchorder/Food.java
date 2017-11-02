@@ -12,18 +12,19 @@ import java.text.NumberFormat;
  */
 public class Food {
         private int numFries, numBurgs, numSalad, numSodas;
-	private double total;
+	private double total,moneyPaid;
         NumberFormat money = NumberFormat.getCurrencyInstance();
         /**
 	 * constructor
 	 * pre: none
 	 * post: An order is placed. Number of each items is initialized.
 	 */
-        public Food(int f, int b, int s, int p){
+        public Food(int f, int b, int s, int p,double mp){
             numFries = f;
             numBurgs = b;
             numSalad = s;
             numSodas = p;
+            moneyPaid = mp;
             
         }
         /** 
@@ -78,4 +79,23 @@ public class Food {
         public String getCost(){
             return money.format(total);
         }
+        /** 
+	 * Returns the change.
+	 * pre: none
+	 * post: The change has been returned.
+	 */
+        public String change(){
+            double change = moneyPaid-total;
+            String x = money.format(change);
+            return x;
+        }
+        /** 
+	 * No Return.
+	 * pre: none
+	 * post: creates string for change information.
+	 */
+        public void getChange(){
+            System.out.println("You change comes to: "+change());
+        }
+     
 }
